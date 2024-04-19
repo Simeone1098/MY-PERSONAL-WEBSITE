@@ -7,12 +7,11 @@ app = Flask(__name__)
 
 # USE YOUR OWN npoint LINK! ADD AN IMAGE URL FOR YOUR POST. 👇
 
+API_URL = os.environ.get("API_URL")
+OWN_EMAIL = os.environ.get("OWN_EMAIL")
+OWN_PASSWORD = os.environ.get("OWN_PASSWORD")
 
-
-API_URL = os.getenv("API_URL")
-OWN_EMAIL = os.getenv("OWN_EMAIL")
-OWN_PASSWORD = os.getenv("OWN_PASSWORD")
-
+print(API_URL)
 posts = requests.get(API_URL).json()
 @app.route("/")
 def home():
