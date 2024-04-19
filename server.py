@@ -7,14 +7,13 @@ app = Flask(__name__)
 
 # USE YOUR OWN npoint LINK! ADD AN IMAGE URL FOR YOUR POST. 👇
 
-posts = requests.get("https://api.npoint.io/c790b4d5cab58020d391").json()
-OWN_EMAIL = "francescomaria.simeone@gmail.com"
-OWN_PASSWORD = "bzum yddj qdbb ikkw"
+
 
 API_URL = os.getenv("API_URL")
 OWN_EMAIL = os.getenv("OWN_EMAIL")
 OWN_PASSWORD = os.getenv("OWN_PASSWORD")
 
+posts = requests.get(API_URL).json()
 @app.route("/")
 def home():
     return render_template("index.html")
