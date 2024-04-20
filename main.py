@@ -2,6 +2,8 @@ import smtplib
 from flask import Flask, render_template, send_file, request, redirect, url_for
 import requests
 import os
+from dotenv import load_dotenv
+load_dotenv()
 
 app = Flask(__name__)
 
@@ -10,8 +12,6 @@ app = Flask(__name__)
 API_URL = os.environ.get("API_URL")
 OWN_EMAIL = os.environ.get("OWN_EMAIL")
 OWN_PASSWORD = os.environ.get("OWN_PASSWORD")
-
-print(API_URL)
 posts = requests.get(API_URL).json()
 @app.route("/")
 def home():
